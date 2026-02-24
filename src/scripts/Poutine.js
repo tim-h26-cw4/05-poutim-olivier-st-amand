@@ -13,10 +13,19 @@ export default class Poutine {
     }
   }
 
-  selectType() {
+  selectType(event) {
     for (let i = 0; i < this.types.length; i++) {
       const type = this.types[i];
-      console.log(type);
+      type.classList.remove('is-active');
     }
+    event.currentTarget.classList.add('is-active');
+    this.selectedType = event.currentTarget.innerText;
+    this.updatePhoto();
+  }
+
+  updatePhoto() {
+    const image = this.element.querySelector('.poutine__image');
+    image.classList.add('is-active');
+    image.src = `assets/images/${this.selectedType}.png`;
   }
 }
