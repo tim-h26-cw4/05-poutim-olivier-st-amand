@@ -21,6 +21,19 @@ export default class Chef {
   }
 
   sendOrder() {
+    this.container.innerHTML = '';
+    console.log(this.menu);
+    let listPoutine = 0;
+    for (let i = 0; i < this.menu.length; i++) {
+      const verification = this.menu[i];
+      if (verification.selectedType !== '') {
+        listPoutine++;
+        console.log(verification);
+      }
+    }
     console.log('Test numéro trois');
+    const paragraph = document.createElement('p');
+    paragraph.textContent = `Nombre total de poutine(s): ${listPoutine}`;
+    this.container.appendChild(paragraph);
   }
 }
